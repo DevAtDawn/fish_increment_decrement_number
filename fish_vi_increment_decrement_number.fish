@@ -1,6 +1,9 @@
+
 function fish_user_key_bindings
-    bind -M insert \ca vi_inc
-    bind -M insert \cx vi_dec
+    # bind -M insert \ca vi_inc
+     bind -s --preset -M default \ca vi_inc
+     bind -s --preset -M default \cx vi_dec
+    # bind -M insert \cx vi_dec
 end
 
 alias vi_dec 'vi_increment_decrement subtract'
@@ -32,7 +35,9 @@ function vi_increment_decrement --description 'increment or decrement numbers wi
         end
         commandline -r $new_string
         commandline -C $lnum
+        commandline -f repaint
     else
         return
     end
 end
+
